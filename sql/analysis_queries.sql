@@ -1,3 +1,6 @@
+
+
+
 -- Customer Churn & Revenue Analysis
 -- Dataset: Customer-Churn-Revenue-Analytics
 
@@ -66,5 +69,41 @@ ELSE 0 END) / COUNT(*),
     ) AS churn_rate_percent
 FROM customers
 GROUP BY tenure_group
+ORDER BY churn_rate_percent DESC;
+
+--------------------------------------------------
+-- Business Question: How does contract 
+type impact churn rates?
+--------------------------------------------------
+SELECT
+    Contract,
+    COUNT(*) AS total_customers,
+    SUM(CASE WHEN Churn = 'Yes' THEN 1 ELSE 
+0 END) AS churned_customers,
+    ROUND(
+        100.0 * SUM(CASE WHEN Churn = 'Yes' 
+THEN 1 ELSE 0 END) / COUNT(*),
+        2
+    ) AS churn_rate_percent
+FROM customers
+GROUP BY Contract
+ORDER BY churn_rate_percent DESC;
+
+--------------------------------------------------
+-- Business Question: Which payment methods 
+show the highest churn rates?
+--------------------------------------------------
+SELECT
+    PaymentMethod,
+    COUNT(*) AS total_customers,
+    SUM(CASE WHEN Churn = 'Yes' THEN 1 ELSE 
+0 END) AS churned_customers,
+    ROUND(
+        100.0 * SUM(CASE WHEN Churn = 'Yes' 
+THEN 1 ELSE 0 END) / COUNT(*),
+        2
+    ) AS churn_rate_percent
+FROM customers
+GROUP BY PaymentMethod
 ORDER BY churn_rate_percent DESC;
 
