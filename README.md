@@ -19,4 +19,12 @@ The key business questions addressed are:
 5. Which payment methods show the highest churn rates?
 6. Which customer segments generate the highest revenue?
 
+## Key Insights & Business Recommendation
+
+### Key Insights
+- Month-to-month customers have the highest churn rate (42.7%), significantly higher than one-year (11.3%) and two-year (2.8%) contract customers.
+- Customers using Electronic Check show the highest churn rate (45.3%), while automatic payment methods have lower churn.
+
+### Business Recommendation
+- Focus retention strategies on month-to-month customers by promoting long-term contracts and incentivizing automatic payment methods to reduce churn.
 
